@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ProjectB3",
+			"Path": "D:\\gamedev\\Projects\\ProjectB3\\Source\\ProjectB3.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ProjectB3Editor",
+			"Path": "D:\\gamedev\\Projects\\ProjectB3\\Source\\ProjectB3Editor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
