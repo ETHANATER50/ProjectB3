@@ -2,13 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+//#include "BaseGameInstance.h"
 #include "ProjectB3Character.generated.h"
-
-//enum to differentiate between characters
-UENUM(BlueprintType)
-enum class CharacterClass : uint8 {
-	Default UMETA(DisplayName = "Mannequin")
-};
 
 USTRUCT()
 struct FAttack {
@@ -35,6 +30,7 @@ class AProjectB3Character : public ACharacter
 protected:
 
 	/** Called for side to side input */
+	UFUNCTION(BlueprintCallable)
 	void MoveRight(float Val);
 
 	/** Handle touch inputs. */
@@ -58,7 +54,10 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void standardAttack();
 
+	UFUNCTION(BlueprintCallable)
 	void forwardAttack();
+
+	UFUNCTION(BlueprintCallable)
 	void forwardSmash();
 
 	//test function to make sure damage updates
@@ -69,21 +68,21 @@ protected:
 
 	//boolean used to denote charging an attack
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
-		bool isCharging;
+	bool isCharging;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
-		bool hasUsedBasicAttack;
+	bool hasUsedBasicAttack;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
-		bool hasUsedForwardAttack;
+	bool hasUsedForwardAttack;
 
 	float maxInputHoldTime;
 
 	FTimerHandle inputHeldTimer;
 
 	//field to make class visible and adjustable in blueprints
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
-	CharacterClass characterClass;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
+	//CharacterClass characterClass;
 
 	//boolean to trigger standard attacks
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
@@ -92,6 +91,9 @@ protected:
 	//field to store and make visible the amount of damage a character has taken
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
 	float damageCounter;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
+	int playerNumber;
 
 public:
 	AProjectB3Character();

@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeProjectB3GameMode() {}
 	PROJECTB3_API UClass* Z_Construct_UClass_AProjectB3GameMode();
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	UPackage* Z_Construct_UPackage__Script_ProjectB3();
+	PROJECTB3_API UClass* Z_Construct_UClass_AProjectB3Character_NoRegister();
 // End Cross Module References
 	void AProjectB3GameMode::StaticRegisterNativesAProjectB3GameMode()
 	{
@@ -32,9 +33,14 @@ void EmptyLinkFunctionForGeneratedCodeProjectB3GameMode() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_numPlayers_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_numPlayers;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_players_Inner;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_players_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_players;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_players;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -52,13 +58,27 @@ void EmptyLinkFunctionForGeneratedCodeProjectB3GameMode() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_numPlayers_MetaData[] = {
 		{ "Category", "GameMode" },
+		{ "Comment", "//number of current players\n" },
 		{ "ModuleRelativePath", "ProjectB3GameMode.h" },
+		{ "ToolTip", "number of current players" },
 	};
 #endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players = { "players", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectB3GameMode, players), METADATA_PARAMS(Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players_MetaData)) };
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_numPlayers = { "numPlayers", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectB3GameMode, numPlayers), METADATA_PARAMS(Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_numPlayers_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_numPlayers_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players_Inner = { "players", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AProjectB3Character_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players_MetaData[] = {
+		{ "Category", "GameMode" },
+		{ "Comment", "//array of player object pointers\n" },
+		{ "ModuleRelativePath", "ProjectB3GameMode.h" },
+		{ "ToolTip", "array of player object pointers" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players = { "players", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectB3GameMode, players), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProjectB3GameMode_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_numPlayers,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3GameMode_Statics::NewProp_players,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AProjectB3GameMode_Statics::StaticCppClassTypeInfo = {
@@ -88,7 +108,7 @@ void EmptyLinkFunctionForGeneratedCodeProjectB3GameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProjectB3GameMode, 2051093499);
+	IMPLEMENT_CLASS(AProjectB3GameMode, 3460791318);
 	template<> PROJECTB3_API UClass* StaticClass<AProjectB3GameMode>()
 	{
 		return AProjectB3GameMode::StaticClass();

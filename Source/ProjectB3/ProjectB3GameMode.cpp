@@ -13,5 +13,5 @@ AProjectB3GameMode::AProjectB3GameMode()
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
 
-	players = 3;
+	numPlayers = 3;
 }

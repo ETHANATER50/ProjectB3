@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PROJECTB3_ProjectB3GameMode_generated_h
 
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_SPARSE_DATA
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_RPC_WRAPPERS
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_INCLASS_NO_PURE_DECLS \
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_SPARSE_DATA
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_RPC_WRAPPERS
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAProjectB3GameMode(); \
 	friend struct Z_Construct_UClass_AProjectB3GameMode_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AProjectB3GameMode)
 
 
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_INCLASS \
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesAProjectB3GameMode(); \
 	friend struct Z_Construct_UClass_AProjectB3GameMode_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AProjectB3GameMode)
 
 
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_STANDARD_CONSTRUCTORS \
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	PROJECTB3_API AProjectB3GameMode(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AProjectB3GameMode) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_ENHANCED_CONSTRUCTORS \
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	PROJECTB3_API AProjectB3GameMode(AProjectB3GameMode&&); \
@@ -58,28 +58,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AProjectB3GameMode); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AProjectB3GameMode)
 
 
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_PRIVATE_PROPERTY_OFFSET
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_9_PROLOG
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_GENERATED_BODY_LEGACY \
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_PRIVATE_PROPERTY_OFFSET
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_10_PROLOG
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_PRIVATE_PROPERTY_OFFSET \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_SPARSE_DATA \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_RPC_WRAPPERS \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_INCLASS \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_STANDARD_CONSTRUCTORS \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_PRIVATE_PROPERTY_OFFSET \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_SPARSE_DATA \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_RPC_WRAPPERS \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_INCLASS \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_GENERATED_BODY \
+#define ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_PRIVATE_PROPERTY_OFFSET \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_SPARSE_DATA \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_INCLASS_NO_PURE_DECLS \
-	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_12_ENHANCED_CONSTRUCTORS \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_PRIVATE_PROPERTY_OFFSET \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_SPARSE_DATA \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_INCLASS_NO_PURE_DECLS \
+	ProjectB3_Source_ProjectB3_ProjectB3GameMode_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

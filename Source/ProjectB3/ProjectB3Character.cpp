@@ -45,7 +45,8 @@ AProjectB3Character::AProjectB3Character()
 	hasUsedBasicAttack = false;
 	hasUsedForwardAttack = false;
 	maxInputHoldTime = 3;
-	characterClass = CharacterClass::Default;
+	playerNumber = 0;
+	//characterClass = CharacterClass::VE_Default;
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)

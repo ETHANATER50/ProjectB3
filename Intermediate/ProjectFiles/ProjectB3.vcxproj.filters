@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ProjectB3.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{EBA96FB5-634F-4AED-8627-372976ECCEEC}</UniqueIdentifier>
+      <UniqueIdentifier>{62BB9940-2CB0-4AA8-B6AE-2C6D728CA401}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ProjectB3.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,10 @@
     <None Include="..\..\Source\ProjectB3Editor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{8BD68B64-F54F-43DA-B046-7456209BD1B4}</UniqueIdentifier>
+      <UniqueIdentifier>{638A23A2-00F2-4BD3-AFBE-E4123430B679}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,8 +32,20 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ProjectB3">
-      <UniqueIdentifier>{6CD5D4E9-FAC7-41A2-81C4-2E565CE1D0A1}</UniqueIdentifier>
+      <UniqueIdentifier>{AEF92241-2E9F-434A-8BD1-7AA01EE3D78F}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\ProjectB3\BaseGameInstance.cpp">
+      <Filter>Source\ProjectB3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectB3\BaseGameInstance.h">
+      <Filter>Source\ProjectB3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectB3\BasePlayerController.cpp">
+      <Filter>Source\ProjectB3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectB3\BasePlayerController.h">
+      <Filter>Source\ProjectB3</Filter>
+    </ClInclude>
     <None Include="..\..\Source\ProjectB3\ProjectB3.Build.cs">
       <Filter>Source\ProjectB3</Filter>
     </None>

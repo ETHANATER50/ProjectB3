@@ -1,0 +1,5 @@
+D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\Definitions.ProjectB3.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\gamedev\Projects\ProjectB3\Source\ProjectB3/BasePlayerController.h
+D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Inc\ProjectB3\BasePlayerController.generated.h

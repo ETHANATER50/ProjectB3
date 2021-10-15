@@ -1,0 +1,3 @@
+D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\Definitions.ProjectB3.h
+D:\gamedev\Projects\ProjectB3\Source\ProjectB3\BaseGameInstance.h
+D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Inc\ProjectB3\BaseGameInstance.generated.h
