@@ -1,19 +1,17 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (D:\gamedev\Projects\ProjectB3).
   Parsing headers for ProjectB3Editor
     Running UnrealHeaderTool "D:\gamedev\Projects\ProjectB3\ProjectB3.uproject" "D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\ProjectB3Editor\Development\ProjectB3Editor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\ethan\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for ProjectB3Editor in 2.8808341 seconds
+  Reflection code generated for ProjectB3Editor in 3.3667559 seconds
   Building ProjectB3Editor...
   Using Visual Studio 2019 14.29.30133 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 8 actions with 16 processes...
-    [1/8] ProjectB3.init.gen.cpp
-    [2/8] ProjectB3GameMode.cpp
-    [3/8] ProjectB3GameMode.gen.cpp
-    [4/8] ProjectB3Character.gen.cpp
-    [5/8] ProjectB3Character.cpp
-    [6/8] UE4Editor-ProjectB3-0033.lib
-       Creating library D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\UE4Editor-ProjectB3-0033.lib and object D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\UE4Editor-ProjectB3-0033.exp
-    [7/8] UE4Editor-ProjectB3-0033.dll
-       Creating library D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\UE4Editor-ProjectB3-0033.suppressed.lib and object D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\UE4Editor-ProjectB3-0033.suppressed.exp
-    [8/8] ProjectB3Editor.target
-  Total time in Parallel executor: 8.31 seconds
-  Total execution time: 11.71 seconds
+  Building 6 actions with 16 processes...
+    [1/6] ProjectB3.init.gen.cpp
+    [2/6] BaseGameInstance.cpp
+    [3/6] BaseGameInstance.gen.cpp
+    [4/6] UE4Editor-ProjectB3-0035.lib
+       Creating library D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\UE4Editor-ProjectB3-0035.lib and object D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\UE4Editor-ProjectB3-0035.exp
+    [5/6] UE4Editor-ProjectB3-0035.dll
+       Creating library D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\UE4Editor-ProjectB3-0035.suppressed.lib and object D:\gamedev\Projects\ProjectB3\Intermediate\Build\Win64\UE4Editor\Development\ProjectB3\UE4Editor-ProjectB3-0035.suppressed.exp
+    [6/6] ProjectB3Editor.target
+  Total time in Parallel executor: 69.28 seconds
+  Total execution time: 73.21 seconds

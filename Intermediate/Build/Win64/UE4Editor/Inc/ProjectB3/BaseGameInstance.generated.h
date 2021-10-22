@@ -13,10 +13,17 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PROJECTB3_BaseGameInstance_generated_h
 
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_SPARSE_DATA
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_RPC_WRAPPERS
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_RPC_WRAPPERS_NO_PURE_DECLS
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_INCLASS_NO_PURE_DECLS \
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_16_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FPlayerDetails_Statics; \
+	PROJECTB3_API static class UScriptStruct* StaticStruct();
+
+
+template<> PROJECTB3_API UScriptStruct* StaticStruct<struct FPlayerDetails>();
+
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_SPARSE_DATA
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_RPC_WRAPPERS
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_RPC_WRAPPERS_NO_PURE_DECLS
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUBaseGameInstance(); \
 	friend struct Z_Construct_UClass_UBaseGameInstance_Statics; \
@@ -25,7 +32,7 @@ public: \
 	DECLARE_SERIALIZER(UBaseGameInstance)
 
 
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_INCLASS \
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_INCLASS \
 private: \
 	static void StaticRegisterNativesUBaseGameInstance(); \
 	friend struct Z_Construct_UClass_UBaseGameInstance_Statics; \
@@ -34,7 +41,7 @@ public: \
 	DECLARE_SERIALIZER(UBaseGameInstance)
 
 
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_STANDARD_CONSTRUCTORS \
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UBaseGameInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UBaseGameInstance) \
@@ -47,7 +54,7 @@ private: \
 public:
 
 
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_ENHANCED_CONSTRUCTORS \
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UBaseGameInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -60,28 +67,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UBaseGameInstance); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UBaseGameInstance)
 
 
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_PRIVATE_PROPERTY_OFFSET
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_14_PROLOG
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_GENERATED_BODY_LEGACY \
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_PRIVATE_PROPERTY_OFFSET
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_29_PROLOG
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_PRIVATE_PROPERTY_OFFSET \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_SPARSE_DATA \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_RPC_WRAPPERS \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_INCLASS \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_STANDARD_CONSTRUCTORS \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_PRIVATE_PROPERTY_OFFSET \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_SPARSE_DATA \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_RPC_WRAPPERS \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_INCLASS \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_GENERATED_BODY \
+#define ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_PRIVATE_PROPERTY_OFFSET \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_SPARSE_DATA \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_INCLASS_NO_PURE_DECLS \
-	ProjectB3_Source_ProjectB3_BaseGameInstance_h_17_ENHANCED_CONSTRUCTORS \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_PRIVATE_PROPERTY_OFFSET \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_SPARSE_DATA \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_INCLASS_NO_PURE_DECLS \
+	ProjectB3_Source_ProjectB3_BaseGameInstance_h_32_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -11,6 +11,21 @@ enum class CharacterClass : uint8 {
 	VE_Default2 UMETA(DisplayName = "Mannequin 2")
 };
 
+USTRUCT(BlueprintType)
+struct FPlayerDetails {
+	GENERATED_BODY()
+
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
+	FString playerName;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player References")
+	CharacterClass characterClass;
+};
+
+
+
 UCLASS()
 class PROJECTB3_API UBaseGameInstance : public UGameInstance
 {
@@ -18,7 +33,10 @@ class PROJECTB3_API UBaseGameInstance : public UGameInstance
 	
 public:
 
-	//array of available classes
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player References")
-	TArray<CharacterClass> classes;
+	int numPlayers;
+
+	//array of players
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player References")
+	TArray<FPlayerDetails> players;
 };
