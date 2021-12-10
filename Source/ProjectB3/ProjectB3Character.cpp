@@ -5,6 +5,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
+
 AProjectB3Character::AProjectB3Character()
 {
 	// Set size for collision capsule
@@ -30,7 +31,7 @@ AProjectB3Character::AProjectB3Character()
 	SideViewCameraComponent->bUsePawnControlRotation = false; // We don't want the controller rotating the camera
 
 	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Face in the direction we are moving..
+	GetCharacterMovement()->bOrientRotationToMovement = false; // Face in the direction we are moving..
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 720.0f, 0.0f); // ...at this rotation rate
 	GetCharacterMovement()->GravityScale = 2.f;
 	GetCharacterMovement()->AirControl = 0.80f;
@@ -46,6 +47,7 @@ AProjectB3Character::AProjectB3Character()
 	hasUsedForwardAttack = false;
 	maxInputHoldTime = 3;
 	playerNumber = 0;
+	chargeTime = 0;
 	//characterClass = CharacterClass::VE_Default;
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
@@ -61,16 +63,17 @@ void AProjectB3Character::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	PlayerInputComponent->BindAction("DebugDamage", IE_Released, this, &AProjectB3Character::debugDamage);
-	PlayerInputComponent->BindAction("StandardAttack", IE_Released, this, &AProjectB3Character::standardAttack);
+	PlayerInputComponent->BindAction("StandardAttack", IE_Pressed, this, &AProjectB3Character::standardAttack);
 	PlayerInputComponent->BindAction("ForwardSmash", IE_Pressed, this, &AProjectB3Character::forwardAttack);
 	PlayerInputComponent->BindAction("ForwardSmash", IE_Released, this, &AProjectB3Character::forwardSmash);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AProjectB3Character::MoveRight);
+	PlayerInputComponent->BindAxis("MoveRightController", this, &AProjectB3Character::MoveRight);
 
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &AProjectB3Character::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &AProjectB3Character::TouchStopped);
 }
 
-float AProjectB3Character::determineDamageCounterValue(float damage)
+float AProjectB3Character::TakeDamage(float damage)
 {
 	if (damageCounter + damage >= 1000) {
 		damageCounter = 999;
@@ -92,8 +95,12 @@ void AProjectB3Character::resetDamageCounter()
 
 void AProjectB3Character::standardAttack()
 {
+	hasUsedBasicAttack = true;
+}
 
-	isStandardAttacking = true;
+void AProjectB3Character::standardAttackDone()
+{
+	isStandardAttacking = false;
 }
 
 void AProjectB3Character::forwardAttack()
@@ -110,20 +117,35 @@ void AProjectB3Character::forwardSmash()
 	if (isCharging) {
 		hasUsedForwardAttack = true;
 		isCharging = false;
+
+		chargeTime = GetWorld()->GetTimerManager().GetTimerElapsed(inputHeldTimer) * 20.0f;
 	}
 }
 
-
+void AProjectB3Character::handleLaunch(float launch)
+{
+	LaunchCharacter(FVector(0, launch, fabs(launch)), false, false);
+	//x, y , z. x is depth, not used. y is left/right, z is up/down. absolute value on z to just hit up for now
+}
 
 void AProjectB3Character::debugDamage()
 {
-	determineDamageCounterValue(5);
+	TakeDamage(5);
 }
 
 void AProjectB3Character::MoveRight(float Value)
 {
 	// add movement in that direction
 	AddMovementInput(FVector(0.f,-1.f,0.f), Value);
+
+	if (Value < 0.0f) {
+		SetActorRotation(FRotator(0.0f, 90.0f, 0.0f));
+		isFacingRight = false;
+	}
+	else if (Value > 0.0f) {
+		SetActorRotation(FRotator(0.0f, -90.0f, 0.0f));
+		isFacingRight = true;
+	}
 }
 
 

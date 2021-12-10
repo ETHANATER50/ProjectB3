@@ -199,6 +199,11 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFPlayerDetails
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_players_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_players;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_isDeviceUsedForMultiplePlayers_MetaData[];
+#endif
+		static void NewProp_isDeviceUsedForMultiplePlayers_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_isDeviceUsedForMultiplePlayers;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -230,10 +235,22 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFPlayerDetails
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_players = { "players", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UBaseGameInstance, players), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_players_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_players_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_isDeviceUsedForMultiplePlayers_MetaData[] = {
+		{ "Category", "Input Mode" },
+		{ "ModuleRelativePath", "BaseGameInstance.h" },
+	};
+#endif
+	void Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_isDeviceUsedForMultiplePlayers_SetBit(void* Obj)
+	{
+		((UBaseGameInstance*)Obj)->isDeviceUsedForMultiplePlayers = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_isDeviceUsedForMultiplePlayers = { "isDeviceUsedForMultiplePlayers", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UBaseGameInstance), &Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_isDeviceUsedForMultiplePlayers_SetBit, METADATA_PARAMS(Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_isDeviceUsedForMultiplePlayers_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_isDeviceUsedForMultiplePlayers_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBaseGameInstance_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_numPlayers,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_players_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_players,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseGameInstance_Statics::NewProp_isDeviceUsedForMultiplePlayers,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UBaseGameInstance_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UBaseGameInstance>::IsAbstract,
@@ -262,7 +279,7 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFPlayerDetails
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UBaseGameInstance, 1431821760);
+	IMPLEMENT_CLASS(UBaseGameInstance, 972253846);
 	template<> PROJECTB3_API UClass* StaticClass<UBaseGameInstance>()
 	{
 		return UBaseGameInstance::StaticClass();

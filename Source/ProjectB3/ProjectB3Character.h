@@ -45,7 +45,7 @@ protected:
 
 	//add or subtract damage (add is hurt, subtract is heal)
 	UFUNCTION(BlueprintCallable)
-	float determineDamageCounterValue(float damage);
+	float TakeDamage(float damage);
 
 	//reset damage to 0
 	UFUNCTION(BlueprintCallable)
@@ -53,6 +53,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void standardAttack();
+
+	UFUNCTION(BlueprintCallable)
+	void standardAttackDone();
 
 	UFUNCTION(BlueprintCallable)
 	void forwardAttack();
@@ -71,14 +74,23 @@ protected:
 	bool isCharging;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
+	float chargeTime;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
 	bool hasUsedBasicAttack;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
 	bool hasUsedForwardAttack;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
+	bool isFacingRight;
+
 	float maxInputHoldTime;
 
 	FTimerHandle inputHeldTimer;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
+	int playerNumber;
 
 	//field to make class visible and adjustable in blueprints
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
@@ -92,8 +104,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
 	float damageCounter;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
-	int playerNumber;
+	//more protected functions because Unreal is being dumb about player number needing to be on line 90 or it doesn't exist
+protected:
+
+	UFUNCTION(BlueprintCallable)
+	void handleLaunch(float launch);
 
 public:
 	AProjectB3Character();

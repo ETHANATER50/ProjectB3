@@ -23,21 +23,25 @@ template<> PROJECTB3_API UScriptStruct* StaticStruct<struct FAttack>();
 #define ProjectB3_Source_ProjectB3_ProjectB3Character_h_19_SPARSE_DATA
 #define ProjectB3_Source_ProjectB3_ProjectB3Character_h_19_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(exechandleLaunch); \
 	DECLARE_FUNCTION(execforwardSmash); \
 	DECLARE_FUNCTION(execforwardAttack); \
+	DECLARE_FUNCTION(execstandardAttackDone); \
 	DECLARE_FUNCTION(execstandardAttack); \
 	DECLARE_FUNCTION(execresetDamageCounter); \
-	DECLARE_FUNCTION(execdetermineDamageCounterValue); \
+	DECLARE_FUNCTION(execTakeDamage); \
 	DECLARE_FUNCTION(execMoveRight);
 
 
 #define ProjectB3_Source_ProjectB3_ProjectB3Character_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(exechandleLaunch); \
 	DECLARE_FUNCTION(execforwardSmash); \
 	DECLARE_FUNCTION(execforwardAttack); \
+	DECLARE_FUNCTION(execstandardAttackDone); \
 	DECLARE_FUNCTION(execstandardAttack); \
 	DECLARE_FUNCTION(execresetDamageCounter); \
-	DECLARE_FUNCTION(execdetermineDamageCounterValue); \
+	DECLARE_FUNCTION(execTakeDamage); \
 	DECLARE_FUNCTION(execMoveRight);
 
 
@@ -87,11 +91,13 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AProjectB3Character); \
 	FORCEINLINE static uint32 __PPO__SideViewCameraComponent() { return STRUCT_OFFSET(AProjectB3Character, SideViewCameraComponent); } \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AProjectB3Character, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__isCharging() { return STRUCT_OFFSET(AProjectB3Character, isCharging); } \
+	FORCEINLINE static uint32 __PPO__chargeTime() { return STRUCT_OFFSET(AProjectB3Character, chargeTime); } \
 	FORCEINLINE static uint32 __PPO__hasUsedBasicAttack() { return STRUCT_OFFSET(AProjectB3Character, hasUsedBasicAttack); } \
 	FORCEINLINE static uint32 __PPO__hasUsedForwardAttack() { return STRUCT_OFFSET(AProjectB3Character, hasUsedForwardAttack); } \
+	FORCEINLINE static uint32 __PPO__isFacingRight() { return STRUCT_OFFSET(AProjectB3Character, isFacingRight); } \
+	FORCEINLINE static uint32 __PPO__playerNumber() { return STRUCT_OFFSET(AProjectB3Character, playerNumber); } \
 	FORCEINLINE static uint32 __PPO__isStandardAttacking() { return STRUCT_OFFSET(AProjectB3Character, isStandardAttacking); } \
-	FORCEINLINE static uint32 __PPO__damageCounter() { return STRUCT_OFFSET(AProjectB3Character, damageCounter); } \
-	FORCEINLINE static uint32 __PPO__playerNumber() { return STRUCT_OFFSET(AProjectB3Character, playerNumber); }
+	FORCEINLINE static uint32 __PPO__damageCounter() { return STRUCT_OFFSET(AProjectB3Character, damageCounter); }
 
 
 #define ProjectB3_Source_ProjectB3_ProjectB3Character_h_16_PROLOG

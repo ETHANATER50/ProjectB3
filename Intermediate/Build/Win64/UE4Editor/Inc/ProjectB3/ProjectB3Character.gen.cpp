@@ -103,6 +103,14 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		return ReturnStruct;
 	}
 	uint32 Get_Z_Construct_UScriptStruct_FAttack_Hash() { return 1777456902U; }
+	DEFINE_FUNCTION(AProjectB3Character::exechandleLaunch)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_launch);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->handleLaunch(Z_Param_launch);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AProjectB3Character::execforwardSmash)
 	{
 		P_FINISH;
@@ -115,6 +123,13 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->forwardAttack();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AProjectB3Character::execstandardAttackDone)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->standardAttackDone();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AProjectB3Character::execstandardAttack)
@@ -131,12 +146,12 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		P_THIS->resetDamageCounter();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AProjectB3Character::execdetermineDamageCounterValue)
+	DEFINE_FUNCTION(AProjectB3Character::execTakeDamage)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_damage);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->determineDamageCounterValue(Z_Param_damage);
+		*(float*)Z_Param__Result=P_THIS->TakeDamage(Z_Param_damage);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AProjectB3Character::execMoveRight)
@@ -151,52 +166,16 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 	{
 		UClass* Class = AProjectB3Character::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "determineDamageCounterValue", &AProjectB3Character::execdetermineDamageCounterValue },
 			{ "forwardAttack", &AProjectB3Character::execforwardAttack },
 			{ "forwardSmash", &AProjectB3Character::execforwardSmash },
+			{ "handleLaunch", &AProjectB3Character::exechandleLaunch },
 			{ "MoveRight", &AProjectB3Character::execMoveRight },
 			{ "resetDamageCounter", &AProjectB3Character::execresetDamageCounter },
 			{ "standardAttack", &AProjectB3Character::execstandardAttack },
+			{ "standardAttackDone", &AProjectB3Character::execstandardAttackDone },
+			{ "TakeDamage", &AProjectB3Character::execTakeDamage },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics
-	{
-		struct ProjectB3Character_eventdetermineDamageCounterValue_Parms
-		{
-			float damage;
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_damage;
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::NewProp_damage = { "damage", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProjectB3Character_eventdetermineDamageCounterValue_Parms, damage), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProjectB3Character_eventdetermineDamageCounterValue_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::NewProp_damage,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::Function_MetaDataParams[] = {
-		{ "Comment", "//add or subtract damage (add is hurt, subtract is heal)\n" },
-		{ "ModuleRelativePath", "ProjectB3Character.h" },
-		{ "ToolTip", "add or subtract damage (add is hurt, subtract is heal)" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AProjectB3Character, nullptr, "determineDamageCounterValue", nullptr, nullptr, sizeof(ProjectB3Character_eventdetermineDamageCounterValue_Parms), Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AProjectB3Character_forwardAttack_Statics
 	{
@@ -239,6 +218,38 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AProjectB3Character_forwardSmash_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics
+	{
+		struct ProjectB3Character_eventhandleLaunch_Parms
+		{
+			float launch;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_launch;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::NewProp_launch = { "launch", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProjectB3Character_eventhandleLaunch_Parms, launch), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::NewProp_launch,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ProjectB3Character.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AProjectB3Character, nullptr, "handleLaunch", nullptr, nullptr, sizeof(ProjectB3Character_eventhandleLaunch_Parms), Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AProjectB3Character_handleLaunch()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AProjectB3Character_handleLaunch_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -322,6 +333,66 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AProjectB3Character_standardAttackDone_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProjectB3Character_standardAttackDone_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ProjectB3Character.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AProjectB3Character_standardAttackDone_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AProjectB3Character, nullptr, "standardAttackDone", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AProjectB3Character_standardAttackDone_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectB3Character_standardAttackDone_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AProjectB3Character_standardAttackDone()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AProjectB3Character_standardAttackDone_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics
+	{
+		struct ProjectB3Character_eventTakeDamage_Parms
+		{
+			float damage;
+			float ReturnValue;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_damage;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::NewProp_damage = { "damage", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProjectB3Character_eventTakeDamage_Parms, damage), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProjectB3Character_eventTakeDamage_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::NewProp_damage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "//add or subtract damage (add is hurt, subtract is heal)\n" },
+		{ "ModuleRelativePath", "ProjectB3Character.h" },
+		{ "ToolTip", "add or subtract damage (add is hurt, subtract is heal)" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AProjectB3Character, nullptr, "TakeDamage", nullptr, nullptr, sizeof(ProjectB3Character_eventTakeDamage_Parms), Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AProjectB3Character_TakeDamage()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AProjectB3Character_TakeDamage_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AProjectB3Character_NoRegister()
 	{
 		return AProjectB3Character::StaticClass();
@@ -347,6 +418,10 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		static void NewProp_isCharging_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_isCharging;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_chargeTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_chargeTime;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_hasUsedBasicAttack_MetaData[];
 #endif
 		static void NewProp_hasUsedBasicAttack_SetBit(void* Obj);
@@ -357,6 +432,15 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		static void NewProp_hasUsedForwardAttack_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_hasUsedForwardAttack;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_isFacingRight_MetaData[];
+#endif
+		static void NewProp_isFacingRight_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_isFacingRight;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_playerNumber_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_playerNumber;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_isStandardAttacking_MetaData[];
 #endif
 		static void NewProp_isStandardAttacking_SetBit(void* Obj);
@@ -365,10 +449,6 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_damageCounter_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_damageCounter;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_playerNumber_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_playerNumber;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -378,12 +458,14 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectB3,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AProjectB3Character_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AProjectB3Character_determineDamageCounterValue, "determineDamageCounterValue" }, // 4144050473
 		{ &Z_Construct_UFunction_AProjectB3Character_forwardAttack, "forwardAttack" }, // 1874199290
 		{ &Z_Construct_UFunction_AProjectB3Character_forwardSmash, "forwardSmash" }, // 3122525901
+		{ &Z_Construct_UFunction_AProjectB3Character_handleLaunch, "handleLaunch" }, // 1772283214
 		{ &Z_Construct_UFunction_AProjectB3Character_MoveRight, "MoveRight" }, // 2616473805
 		{ &Z_Construct_UFunction_AProjectB3Character_resetDamageCounter, "resetDamageCounter" }, // 1847457008
 		{ &Z_Construct_UFunction_AProjectB3Character_standardAttack, "standardAttack" }, // 4285733229
+		{ &Z_Construct_UFunction_AProjectB3Character_standardAttackDone, "standardAttackDone" }, // 1860304206
+		{ &Z_Construct_UFunction_AProjectB3Character_TakeDamage, "TakeDamage" }, // 1013923225
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3Character_Statics::Class_MetaDataParams[] = {
@@ -428,6 +510,13 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isCharging = { "isCharging", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AProjectB3Character), &Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isCharging_SetBit, METADATA_PARAMS(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isCharging_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isCharging_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3Character_Statics::NewProp_chargeTime_MetaData[] = {
+		{ "Category", "Character" },
+		{ "ModuleRelativePath", "ProjectB3Character.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AProjectB3Character_Statics::NewProp_chargeTime = { "chargeTime", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectB3Character, chargeTime), METADATA_PARAMS(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_chargeTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_chargeTime_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3Character_Statics::NewProp_hasUsedBasicAttack_MetaData[] = {
 		{ "Category", "Character" },
 		{ "ModuleRelativePath", "ProjectB3Character.h" },
@@ -450,6 +539,24 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AProjectB3Character_Statics::NewProp_hasUsedForwardAttack = { "hasUsedForwardAttack", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AProjectB3Character), &Z_Construct_UClass_AProjectB3Character_Statics::NewProp_hasUsedForwardAttack_SetBit, METADATA_PARAMS(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_hasUsedForwardAttack_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_hasUsedForwardAttack_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isFacingRight_MetaData[] = {
+		{ "Category", "Character" },
+		{ "ModuleRelativePath", "ProjectB3Character.h" },
+	};
+#endif
+	void Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isFacingRight_SetBit(void* Obj)
+	{
+		((AProjectB3Character*)Obj)->isFacingRight = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isFacingRight = { "isFacingRight", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AProjectB3Character), &Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isFacingRight_SetBit, METADATA_PARAMS(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isFacingRight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isFacingRight_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber_MetaData[] = {
+		{ "Category", "Character" },
+		{ "ModuleRelativePath", "ProjectB3Character.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber = { "playerNumber", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectB3Character, playerNumber), METADATA_PARAMS(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isStandardAttacking_MetaData[] = {
 		{ "Category", "Character" },
 		{ "Comment", "//boolean to trigger standard attacks\n" },
@@ -471,22 +578,17 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AProjectB3Character_Statics::NewProp_damageCounter = { "damageCounter", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectB3Character, damageCounter), METADATA_PARAMS(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_damageCounter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_damageCounter_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber_MetaData[] = {
-		{ "Category", "Character" },
-		{ "ModuleRelativePath", "ProjectB3Character.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber = { "playerNumber", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectB3Character, playerNumber), METADATA_PARAMS(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProjectB3Character_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_SideViewCameraComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isCharging,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_chargeTime,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_hasUsedBasicAttack,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_hasUsedForwardAttack,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isFacingRight,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_isStandardAttacking,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_damageCounter,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectB3Character_Statics::NewProp_playerNumber,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AProjectB3Character_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AProjectB3Character>::IsAbstract,
@@ -515,7 +617,7 @@ static struct FScriptStruct_ProjectB3_StaticRegisterNativesFAttack
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProjectB3Character, 2898021101);
+	IMPLEMENT_CLASS(AProjectB3Character, 2673908655);
 	template<> PROJECTB3_API UClass* StaticClass<AProjectB3Character>()
 	{
 		return AProjectB3Character::StaticClass();

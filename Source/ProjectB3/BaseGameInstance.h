@@ -39,4 +39,7 @@ public:
 	//array of players
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player References")
 	TArray<FPlayerDetails> players;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Input Mode")
+	bool isDeviceUsedForMultiplePlayers;
 };

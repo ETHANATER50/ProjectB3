@@ -68,4 +68,14 @@
       <Filter>Source\ProjectB3</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\ProjectB3\HitBox.cpp">
+      <Filter>Source\ProjectB3</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\ProjectB3\HitBox.h">
+      <Filter>Source\ProjectB3</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
